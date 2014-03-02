@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr" >
+<head>
+<jdoc:include type="head" />
+
+<link rel="stylesheet" href="/templates/system/css/system.css" type="text/css" />
+<link rel="stylesheet" href="/templates/allprogress/css/position.css" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="/templates/allprogress/css/layout.css" type="text/css" media="screen,projection" />
+<link rel="stylesheet" href="/templates/allprogress/css/print.css" type="text/css" media="Print" />
+<link rel="stylesheet" href="/templates/allprogress/css/general.css" type="text/css" />
+<link rel="stylesheet" href="/templates/allprogress/css/personal.css" type="text/css" />
+
+
+</head>
+
+<body class="first ">
+
+<div id="all">
+  <div class="main">
+  <div id="header">
+  
+  <jdoc:include type="modules" name="search"/>
+  
+  <form action="/index.php" method="post">
+	<div class="search">
+	
+			<label for="mod-search-searchword">Search...</label><input name="searchword" id="mod-search-searchword" maxlength="20"  class="inputbox" type="text" size="50" value="Search "  onblur="if (this.value=='') this.value='Search ';" onfocus="if (this.value=='Search ') this.value='';" /><input type="submit" value="Search" class="button" onclick="this.form.searchword.focus();"/>	<input type="hidden" name="task" value="search" />
+	<input type="hidden" name="option" value="com_search" />
+	<input type="hidden" name="Itemid" value="464" />
+
+	</div>
+</form>
+
+      <div class="logoheader">
+        <h1 id="logo">
+                    <a href="/" title="Growyex"><img src="/logo.png"  alt="" /></a>
+                              <span class="header1"> </span></h1>
+      </div>
+      <!-- end logoheader --> 
+           
+     <div class="navigation">
+	 
+	 <jdoc:include type="modules" name="menu" style="xhtml"/>
+
+     </div>
+  </div>
+  <!-- end header -->
+    <style type="text/css">
+.featureCarousel {
+  width:950px;
+  height: 391px;
+}
+
+</style>
+
+<jdoc:include type="modules" name="carousel" style="xhtml"/>
+
+      <div class="custom">
+	  
+		<jdoc:include type="modules" name="middle" style="xhtml"/>
+	  
+</div>
+        <div id="content">
+      <div class="wrapper">
+
+		<?php if($this->countModules('left')) : ?>
+<div id="sidebar" class="left">
+  			<jdoc:include type="modules" name="left" style="xhtml"/>
+</div>
+	<?php endif; ?>
+
+	
+	<?php if($this->countModules('right')) : ?>
+<div id="sidebar-2" class="right">
+  		<jdoc:include type="modules" name="right" style="xhtml"/>
+</div>
+	<?php endif; ?>
+	  
+                
+<div class="blog">
+				<jdoc:include type="component" />		
+</div>
+</div>
+	<?php if($this->countModules('aftermain')) : ?>
+  		<center><jdoc:include type="modules" name="aftermain" style="xhtml"/></center>
+	<?php endif; ?>
+</div>
+</div>
+</div>
+<footer>
+  <div id="footer">
+
+
+      			<div class="moduletable-icons">
+								<jdoc:include type="modules" name="social" style="xhtml"/>
+
+<center>
+
+<!-- Yandex.Metrika informer -->
+<a href="http://metrika.yandex.ru/stat/?id=13937680&amp;from=informer"
+target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/13937680/3_0_FFFFFCFF_F5F5DCFF_0_pageviews"
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:13937680,type:0,lang:'ru'});return false}catch(e){}"/></a>
+<!-- /Yandex.Metrika informer -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter13937680 = new Ya.Metrika({id:13937680, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/13937680" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</center>		
+
+</div>
+	<span class="call"><span class="t1">Телефон:</span><span class="t2"> 1-800 123 45 67</span></span>
+    <span class="priv">AllProgress.ru  &copy; 2012 :  <a href="#">Privacy Policy</a></span>
+    <!--{%FOOTER_LINK} -->
+  
+
+
+
+
+</div>
+  <!-- end footer -->
+</footer>
+
+<script type="text/javascript"> Cufon.now(); </script>
+</body>
+</html>
