@@ -1,11 +1,13 @@
 Allprogress::Application.routes.draw do
 
 #Общие страницы
-  get "static_pages/about"
-  get "static_pages/price"
-  get "static_pages/articles"
-  get "static_pages/help"
-  get "static_pages/contacts"
+  get "/index.html", to: "static_pages#index"
+  get "/about.html", to: "static_pages#about"
+  get "/price.html", to: "static_pages#price"
+  get "/articles.html", to: "static_pages#articles"
+  get "/services.html", to: "static_pages#services"
+  get "/contacts.html", to: "static_pages#contacts"
+  get "/portpholio.html", to: "static_pages#portpholio"
 
 #Корневая страница
   root :to => 'static_pages#index'

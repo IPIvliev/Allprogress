@@ -11,9 +11,13 @@ class StaticPagesController < ApplicationController
   def articles
   end
 
-  def help
+  def services
   end
 
   def contacts
   end
+
+  def portpholio
+  end
+
 end
