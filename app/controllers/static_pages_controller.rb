@@ -12,8 +12,8 @@ class StaticPagesController < ApplicationController
     add_breadcrumb @title
   end
 
-  def price
-    @title = "Стоимость"
+  def catalogue
+    @title = "Магазин сайтов"
     add_breadcrumb @title
   end
 
@@ -32,7 +32,7 @@ class StaticPagesController < ApplicationController
     add_breadcrumb @title
   end
 
-  def portpholio
+  def portfolio
     @title = "Портфолио"
     add_breadcrumb @title
   end

@@ -1,3 +1,5 @@
+<% provide(:title, @title) %>
+
 	<!-- WRAPPER -->
 		<div id="wrapper">
 
@@ -15,40 +17,40 @@
 					<!-- FORM -->
 					<div class="col-md-8">
 
-						<h2>Drop us a line or just say <strong><em>Hello!</em></strong></h2>
+						<h2>Задайте свой вопрос или просто скажите <strong><em>Привет!</em></strong></h2>
 
 						<form class="white-row" action="php/contact.php" method="post">
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-6">
-										<label>Full Name *</label>
-										<input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name">
+										<label>ФИО *</label>
+										<input type="text" placeholder="Игорь Иванов" maxlength="100" class="form-control">
 									</div>
 									<div class="col-md-6">
-										<label>E-mail Address *</label>
-										<input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email">
+										<label>E-mail *</label>
+										<input type="email" placeholder="infocom-nn@yandex.ru" maxlength="100" class="form-control" name="email" id="email">
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-12">
-										<label>Subject</label>
-										<input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject">
+										<label>Телефон (если Вы хотите, чтобы мы Вам перезвонили)</label>
+										<input type="text" placeholder="8-903-602-89-19" maxlength="100" class="form-control">
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-12">
-										<label>Message *</label>
-										<textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message"></textarea>
+										<label>Ваш вопрос *</label>
+										<textarea maxlength="5000" placeholder="Задайте свой вопрос здесь" rows="10" class="form-control"></textarea>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<input type="submit" value="Send Message" class="btn btn-primary btn-lg" data-loading-text="Loading...">
+									<input type="submit" value="Отправить Сообщение" class="btn btn-primary btn-lg" data-loading-text="Loading...">
 								</div>
 							</div>
 						</form>
@@ -60,10 +62,10 @@
 					<!-- INFO -->
 					<div class="col-md-4">
 
-						<h2>Visit Us</h2>
+						<h2>Наши координаты</h2>
 
 						<p>
-							Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.
+							Мы всегда рады звонкам от потенциальных клиентов. Уверены, что даже в случае, если вы не станете заказчиком, наши специалисты смогут дать Вам профессиональную консультацию по вопросам web-разработки.
 						</p>
 
 						<div class="divider half-margins"><!-- divider -->
@@ -71,20 +73,22 @@
 						</div>
 
 						<p>
-							<span class="block"><strong><i class="fa fa-map-marker"></i> Address:</strong> Street Name, City Name, Country</span>
-							<span class="block"><strong><i class="fa fa-phone"></i> Phone:</strong> 1800-555-1234</span>
-							<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:mail@yourdomain.com">mail@yourdomain.com</a></span>
+							<span class="block"><strong><i class="fa fa-map-marker"></i> Адрес:</strong> г. Нижний Новгород, ул. Бекетова, 15, оф. 4</span>
+							<span class="block"><strong><i class="fa fa-phone"></i> Телефон:</strong> <span class="orange">414-89-19</span>
+							<span class="block"><strong><i class="fa fa-mobile-phone"></i> Телефон:</strong> <span class="orange">8-903-602-89-19</span>
+							<span class="block"><strong><i class="fa fa-edit"></i> Факс:</strong> 8 (831) 435-62-30</span>
+							<span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> infocom-nn@yandex.ru</span>
 						</p>
 
 						<div class="divider half-margins"><!-- divider -->
 							<i class="fa fa-star"></i>
 						</div>
 
-						<h4 class="font300">Business Hours</h4>
+						<h4 class="font300">Рабочее Время</h4>
 						<p>
-							<span class="block"><strong>Monday - Friday:</strong> 10am to 6pm</span>
-							<span class="block"><strong>Saturday:</strong> 10am to 2pm</span>
-							<span class="block"><strong>Sunday:</strong> Closed</span>
+							<span class="block"><strong>Понедельник - Пятница:</strong> С 10:00 до 19:00</span>
+							<span class="block"><strong>Суббота:</strong> С 10:00 до 14:00</span>
+							<span class="block"><strong>Воскресенье:</strong> Выходной</span>
 						</p>
 
 					</div>
