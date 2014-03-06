@@ -24,9 +24,9 @@
 	WAIT FOR IMAGES [used by masonry]
 *************************************************** **/
 // GOOGLE MAP
-var	$googlemap_latitude 	= -37.812344,
-	$googlemap_longitude	= 144.968900,
-	$googlemap_zoom			= 13;
+var	$googlemap_latitude 	= 56.2907606,
+	$googlemap_longitude	= 44.0004068,
+	$googlemap_zoom			= 16;
 
 
 

@@ -9,7 +9,7 @@
         </button>
 
         <!-- Logo text or image -->
-        <a class="logo" href="index.html">
+        <a class="logo" href="/index.html">
           <img src="/logo.png" alt="Atropos" />
         </a>
 
@@ -17,30 +17,33 @@
         <div class="navbar-collapse nav-main-collapse collapse pull-right">
           <nav class="nav-main mega-menu">
             <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
-              <li class="active">
+              <li class="<%=is_active('index')%>">
                 <a href="/index.html">Главная</a>
               </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" href="#">
+              <li class="<%=is_active('about')%>">
+                <a href="/about.html">О компании</a>
+              </li>
+              <li class="dropdown <%=is_active('services')%>">
+                <a class="dropdown-toggle" href="services.html">
                   Услуги <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><i class="fa fa-check-square-o"></i>Создание сайтов</a></li>
-                  <li><a href="#"><i class="fa fa-check-square-o"></i>Сопровождение сайтов</a></li>
-                  <li><a href="#"><i class="fa fa-check-square-o"></i>Продвижение сайтов</a></li>
+                  <li><a href="/services/tomakeasite.html"><i class="fa fa-pencil"></i>Создание сайтов</a></li>
+                  <li><a href="/services/toserviceasite.html"><i class="fa fa-gears"></i>Сопровождение сайтов</a></li>
+                  <li><a href="/services/toadvanceasite.html"><i class="fa fa-thumbs-o-up"></i>Продвижение сайтов</a></li>
                 </ul>
               </li>
-              <li>
-                <a href="#">Стоимость</a>
+              <li class="<%=is_active('price')%>">
+                <a href="/price.html">Стоимость</a>
               </li>
-              <li>
-                <a href="#">Портфолио</a>
+              <li class="<%=is_active('portpholio')%>">
+                <a href="/portpholio.html">Портфолио</a>
               </li>
-              <li>
-                <a href="#">Блог</a>
+              <li class="<%=is_active('blog')%>">
+                <a href="/blog.html">Блог</a>
               </li>
-              <li>
-                <a href="#">Контакты</a>
+              <li class="<%=is_active('contacts')%>">
+                <a href="/contacts.html">Контакты</a>
               </li>
 
             </ul>
