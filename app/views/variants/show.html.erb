@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Picture:</b>
+  <%= @variant.picture %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @variant.price %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @variant.url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @variant.description %>
+</p>
+
+<p>
+  <b>Articul:</b>
+  <%= @variant.articul %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @variant.status %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @variant.company %>
+</p>
+
+
+<%= link_to 'Edit', edit_variant_path(@variant) %> |
+<%= link_to 'Back', variants_path %>

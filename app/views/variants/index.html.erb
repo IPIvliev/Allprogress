@@ -1,0 +1,35 @@
+<h1>Listing variants</h1>
+
+<table>
+  <tr>
+    <th>Picture</th>
+    <th>Price</th>
+    <th>Url</th>
+    <th>Description</th>
+    <th>Articul</th>
+    <th>Status</th>
+    <th>Company</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @variants.each do |variant| %>
+  <tr>
+    <td><%= variant.picture %></td>
+    <td><%= variant.price %></td>
+    <td><%= variant.url %></td>
+    <td><%= variant.description %></td>
+    <td><%= variant.articul %></td>
+    <td><%= variant.status %></td>
+    <td><%= variant.company %></td>
+    <td><%= link_to 'Show', variant %></td>
+    <td><%= link_to 'Edit', edit_variant_path(variant) %></td>
+    <td><%= link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Variant', new_variant_path %>

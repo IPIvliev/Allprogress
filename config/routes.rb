@@ -1,5 +1,11 @@
 Allprogress::Application.routes.draw do
 
+  resources :articles
+
+
+  resources :variants
+
+
 #Общие страницы
   get "/index.html", to: "static_pages#index"
   get "/about.html", to: "static_pages#about"

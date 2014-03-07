@@ -22,233 +22,26 @@
 
           <ul class="sort-destination isotope" data-sort-id="isotope-list">
 
-            <li class="isotope-item col-sm-6 col-md-3 money"><!-- item -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/scouter-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
+            <% @variants.each do |variant| %>
+              <li class="isotope-item col-sm-6 col-md-3 <%= variant.tags %>"><!-- item -->
+                <div class="item-box">
+                  <figure>
+                    <a class="item-hover" href="<%= variant.url %>">
+                      <span class="overlay color2"></span>
+                      <span class="inner">
+                        <span class="block fa fa-plus fsize20"></span>
+                        <strong>ИНФОРМАЦИЯ</strong> О САЙТЕ
+                      </span>
+                    </a>
+                    <%= image_tag variant.picture, :class => "img-responsive", :width => 260, :height => 260, :alt => variant.company %>
+                  </figure>
+                  <div class="item-box-desc">
+                    <h4><%= variant.company %></h4>
+                    <small class="styleColor"><%= Russian::strftime(variant.updated_at, "%d %B %Y") %></small>
+                  </div>
                 </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 money"><!-- item 2 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>VIEW</strong> VIDEO
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/black-kitty-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 design"><!-- item 3 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/merchant2-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 photography"><!-- item 4 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/flippin-the-bird1-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 development"><!-- item 5 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>VIEW</strong> VIDEO
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/night_to_remember1-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 design"><!-- item 6 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/spacebound-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 photography design"><!-- item 7 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/be-my-guest1-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 development"><!-- item 8 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/black-box5-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 development"><!-- item -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>VIEW</strong> VIDEO
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/weather-app-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 photography"><!-- item 2 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/theMoose-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 design"><!-- item 3 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/tumblr_mopqj9QUeq1st5lhmo1_12801-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
-
-            <li class="isotope-item col-sm-6 col-md-3 photography"><!-- item 4 -->
-              <div class="item-box">
-                <figure>
-                  <a class="item-hover" href="portfolio-single.html">
-                    <span class="overlay color2"></span>
-                    <span class="inner">
-                      <span class="block fa fa-plus fsize20"></span>
-                      <strong>PROJECT</strong> DETAIL
-                    </span>
-                  </a>
-                  <img class="img-responsive" src="assets/images/demo/portfolio/scouter-600x403.jpg" width="260" height="260" alt="">
-                </figure>
-                <div class="item-box-desc">
-                  <h4>Проект Allprogress.ru</h4>
-                  <small class="styleColor">7 марта 2014</small>
-                </div>
-              </div>
-            </li>
+              </li>
+            <% end %>
 
           </ul>
 

@@ -15,11 +15,15 @@ class StaticPagesController < ApplicationController
   def catalogue
     @title = "Магазин сайтов"
     add_breadcrumb @title
+
+    @variants = Variant.where(:status => 0)
   end
 
   def blog
     @title = "Блог"
     add_breadcrumb @title
+
+    @articles = Article.paginate(:page => params[:page], :per_page => 3).order('created_at DESC')
   end
 
   def services
@@ -35,6 +39,8 @@ class StaticPagesController < ApplicationController
   def portfolio
     @title = "Портфолио"
     add_breadcrumb @title
+
+    @variants = Variant.where(:status => 2)
   end
 
   def tomakeasite
