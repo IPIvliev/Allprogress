@@ -2003,12 +2003,12 @@ p.dropcap.color:first-letter {
 .testimonial.male p,
 .testimonial.female p {
     padding-left:52px;
-    background-image:url('../images/female.png');
+    background-image:url('/images/female.png');
     background-repeat:no-repeat;
     background-position:16px 25px;
 }
 .testimonial.male p {
-    background-image:url('../images/male.png');
+    background-image:url('/images/male.png');
 }
 
 
