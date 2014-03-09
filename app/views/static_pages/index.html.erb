@@ -3,6 +3,13 @@
       
       <%= render 'shared/slider' %>
 
+<section class="container text-center">
+  <%= link_to current_user.name, "/contacts.html" if current_user %>
+  <%= link_to "Выйти", destroy_user_session_path, :method => :delete if current_user %>
+  <%= image_tag current_user.avatar if current_user %>
+</section>
+
+
       <section class="container text-center">
 
         <h1 class="text-center">
