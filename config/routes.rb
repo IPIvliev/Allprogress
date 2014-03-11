@@ -1,6 +1,13 @@
 Allprogress::Application.routes.draw do
 
+#Панель администратора
+  get "marketings/kps"
+  get "marketings/messages"
+
+#Для пользователей и регистрации через Facebook и Vkontakte
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+#Дополнительные маршруты
   resources :articles
   resources :variants
 

@@ -1,13 +1,11 @@
     <!-- WRAPPER -->
     <div id="wrapper">
       
-      <%= render 'shared/slider' %>
+      <%= render '/shared/slider' %>
 
-<section class="container text-center">
-  <%= link_to current_user.name, "/contacts.html" if current_user %>
-  <%= link_to "Выйти", destroy_user_session_path, :method => :delete if current_user %>
-  <%= image_tag current_user.avatar if current_user %>
-</section>
+
+    <%= render '/shared/moremenu' %>
+
 
 
       <section class="container text-center">

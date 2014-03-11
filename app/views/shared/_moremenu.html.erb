@@ -1,0 +1,36 @@
+<% if current_user && current_user.role == "admin" %>
+
+
+
+<section class="container text-center">
+  <!-- Top Nav -->
+    <a class="logo" href="/index.html">
+    	<%= image_tag current_user.avatar if current_user %>
+    </a>
+
+    <div class="navbar-collapse nav-main-collapse collapse pull-right">
+      <nav class="nav-main mega-menu">
+        <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
+          <li class="<%=is_active('portfolio')%>">
+            <%= link_to "Работы", variants_path %>
+          </li>
+          <li class="<%=is_active('blog')%>">
+            <%= link_to "Блог", articles_path %>
+          </li>
+          <li class="<%=is_active('catalogue')%>">
+            <a href="/marketings/kps">КП</a>
+          </li>
+          <li class="<%=is_active('catalogue')%>">
+            <a href="/marketings/messages">Сообщения</a>
+          </li>
+          <li class="active">
+            <%= link_to "Выйти", destroy_user_session_path, :method => :delete if current_user %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="divider"></div>
+</section>
+
+<% end %>
