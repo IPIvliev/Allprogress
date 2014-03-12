@@ -42,7 +42,7 @@
                                 <% @variants.each do |site| %>
                                     <tr><!-- item -->
                                         <td><%= link_to site.articul, site %></td>
-                                        <td><%= image_tag site.picture, :width => "200" %></td>
+                                        <td><%= image_tag site.thumb.url, :width => "200" %></td>
                                         <td><%= site.price %></td>
                                         <td><%= site.description %></td>
                                         <td><%= site.company %></td>
@@ -55,7 +55,6 @@
                             </tbody>
                         </table>
 
-<%= link_to 'Создать новый вариант дизайна', new_variant_path %>
                     </div>
 
                 </div>
@@ -64,6 +63,6 @@
     <p>На текущий момент не было направленно ни одного коммерческого предложения.</p>
 
 <% end %>
-
+<%= link_to 'Создать новый вариант дизайна', new_variant_path %>
             </section>
         </div>
