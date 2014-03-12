@@ -35,6 +35,10 @@ GEM
       will_paginate
     breadcrumbs_on_rails (2.3.0)
     builder (3.0.4)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -114,6 +118,7 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     russian (0.6.0)
       i18n (>= 0.5.0)
     sass (3.2.14)
@@ -148,6 +153,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-will_paginate (= 0.0.6)
   breadcrumbs_on_rails
+  carrierwave
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
@@ -155,6 +161,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-vkontakte
   rails (= 3.2.13)
+  rmagick (= 2.13.2)
   russian
   sass-rails (~> 3.2.3)
   sqlite3

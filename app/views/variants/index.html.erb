@@ -1,35 +1,69 @@
-<h1>Listing variants</h1>
+<!-- WRAPPER -->
+        <div id="wrapper">
 
-<table>
-  <tr>
-    <th>Picture</th>
-    <th>Price</th>
-    <th>Url</th>
-    <th>Description</th>
-    <th>Articul</th>
-    <th>Status</th>
-    <th>Company</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            <!-- PAGE TITLE -->
+            <%= render "/shared/bread" %>
 
-<% @variants.each do |variant| %>
-  <tr>
-    <td><%= variant.picture %></td>
-    <td><%= variant.price %></td>
-    <td><%= variant.url %></td>
-    <td><%= variant.description %></td>
-    <td><%= variant.articul %></td>
-    <td><%= variant.status %></td>
-    <td><%= variant.company %></td>
-    <td><%= link_to 'Show', variant %></td>
-    <td><%= link_to 'Edit', edit_variant_path(variant) %></td>
-    <td><%= link_to 'Destroy', variant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+            <%= render '/shared/moremenu' %>
+
+            <section class="container">
+
+<% if !@variants.blank? %>
+<!-- INVOICE BODY -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Варианты <strong>Дизайна</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <p>Список электронных адресов, на которые были отправленны коммерческие предложения.</p>
+                    
+                    
+                        <table class="table table-striped">
+                            <!-- table head -->
+                            <thead>
+                                <tr>
+                                    <th>Артикул</th>
+                                    <th>Изображение</th>
+                                    <th>Стоимость</th>
+                                    <th>Описание</th>
+                                    <th>Компания</th>
+                                    <th>Ссылка</th>
+                                    <th>Дата создания</th>
+                                    <th>Статус</th>
+                                    <th>Изменить / Удалить</th>
+
+                                </tr>
+                            </thead>
+                            
+                            <!-- table items -->
+                            <tbody>
+                                <% @variants.each do |site| %>
+                                    <tr><!-- item -->
+                                        <td><%= link_to site.articul, site %></td>
+                                        <td><%= image_tag site.picture, :width => "200" %></td>
+                                        <td><%= site.price %></td>
+                                        <td><%= site.description %></td>
+                                        <td><%= site.company %></td>
+                                        <td><%= site.url %></td>
+                                        <td><%= site.created_at %></td>
+                                        <td><%= site.status %></td>
+                                        <td><%= link_to 'Изменить', edit_variant_path(site) %> / <%= link_to 'Удалить', site, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+
+<%= link_to 'Создать новый вариант дизайна', new_variant_path %>
+                    </div>
+
+                </div>
+                <!-- INVOICE BODY -->
+<% else %>
+    <p>На текущий момент не было направленно ни одного коммерческого предложения.</p>
+
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Variant', new_variant_path %>
+            </section>
+        </div>
