@@ -11,35 +11,62 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :articul %><br />
-    <%= f.number_field :articul %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.number_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br />
-    <%= f.text_field :company %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+                  
+                  <div class="row">
+                    <div class="col-md-3">
+
+<%= image_tag @variant.picture.thumb.url %> <%= f.file_field :picture, :class => "form-control" %>
+                    </div>
+                    <div class="col-md-9"><br><br>
+
+
+                   
+
+ <div class="col-md-12">
+                  <div class="form-group">
+                    <label><strong>Артикул:</strong></label>
+                    <%= f.number_field :articul, :placeholder => @variant.articul, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6">
+                    <label><strong>Стоимость:</strong></label>
+                    <%= f.number_field :price, :placeholder => @variant.price, :class => "form-control" %>
+                  </div>
+                  <div class="col-md-6">
+                    <label><strong>Компания:</strong></label>
+                    <%= f.text_field :company, :placeholder => @variant.company, :class => "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-4">
+                    <label><strong>Ссылка:</strong></label>
+                    <%= f.text_field :url, :placeholder => @variant.url, :class => "form-control" %>
+                  </div>
+                  <div class="col-md-4">
+                    <label><strong>Тэги:</strong></label>
+                    <%= f.text_field :tags, :placeholder => @variant.tags, :class => "form-control" %>
+                  </div>
+                  <div class="col-md-4">
+                    <label><strong>Статус:</strong></label>
+                    <%= f.select(:status, options_for_select([['На продажу', 0], ['В работе', 1], ['Продано', 2]]), {}, { :class => "form-control" }) %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <div class="col-md-12">
+                    <label><strong>Описание сайта</strong></label>
+                    <%= f.text_area :description, :placeholder => @variant.description, :rows => "10", :class => "form-control" %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.submit :value => "Отправить", :class => "btn btn-primary" %>
+                </div>
+              </div>
+</div>
+
 <% end %>

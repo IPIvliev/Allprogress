@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
     @title = "Магазин сайтов"
     add_breadcrumb @title
 
-    @variants = Variant.where(:status => 0)
+    @variants = Variant.where(:status => 0).order('created_at DESC')
   end
 
   def blog

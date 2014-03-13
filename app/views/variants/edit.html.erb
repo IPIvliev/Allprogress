@@ -7,12 +7,27 @@
 
             <section class="container">
 
-<h1>Editing variant</h1>
 
-<%= render 'form' %>
+<div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Варианты дизайна <strong>На Продажу</strong></h3>
+                    </div>
 
-<%= link_to 'Show', @variant %> |
-<%= link_to 'Back', variants_path %>
+                    <div class="panel-body">
+
+                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                    
+                   
+                               <%= render 'form' %>
+
+
+                    </div>
+
+                </div>
+
+
+<%= link_to 'Просмотр', @variant %> |
+<%= link_to 'Назад', variants_path %>
 
 </section>
 </div>

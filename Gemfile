@@ -17,6 +17,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 
+# Variants
+
+
 # Images
 gem 'carrierwave'
 gem 'rmagick', '2.13.2'

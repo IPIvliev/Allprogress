@@ -2,7 +2,9 @@ class VariantsController < ApplicationController
   # GET /variants
   # GET /variants.json
   def index
-    @variants = Variant.all
+    @variants0 = Variant.where(:status => 0).order('created_at DESC')
+    @variants1 = Variant.where(:status => 1).order('created_at DESC')
+    @variants2 = Variant.where(:status => 2).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
