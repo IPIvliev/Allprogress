@@ -1,18 +1,19 @@
 Allprogress::Application.routes.draw do
 
-#Панель администратора
-  get "marketings/kps"
-  get "marketings/messages"
+# Панель администратора
+  get "marketings/marketing"
+  get "marketings/zakaz"
 
-#Для пользователей и регистрации через Facebook и Vkontakte
+# Для пользователей и регистрации через Facebook и Vkontakte
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-#Дополнительные маршруты
+# Дополнительные маршруты
   resources :articles
-  resources :variants
+  resources :variants do
+    post :newzakaz, :on => :member
+  end
 
-
-#Общие страницы
+# Общие страницы
   get "/index.html", to: "static_pages#index"
   get "/about.html", to: "static_pages#about"
   get "/catalogue.html", to: "static_pages#catalogue"
@@ -24,7 +25,7 @@ Allprogress::Application.routes.draw do
   get "/services/toserviceasite.html", to: "static_pages#toserviceasite"
   get "/services/toadvanceasite.html", to: "static_pages#toadvanceasite"
 
-#Корневая страница
+# Корневая страница
   root :to => 'static_pages#index'
 
 end

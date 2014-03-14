@@ -134,11 +134,11 @@
                                     <tr><!-- item -->
                                         <td><%= link_to site.articul, site %></td>
                                         <td><%= image_tag site.picture.thumb.url %></td>
-                                        <td><%= site.price %></td>
-                                        <td><%= site.description %></td>
+                                        <td><%= number_to_currency( site.price, unit: "руб.", :precision => 0, delimiter: " ", format: "%n %u") %></td>
+                                        <td><%= truncate( raw( sanitize(site.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 100, :omission => "...") %></td>
                                         <td><%= site.company %></td>
-                                        <td><%= site.url %></td>
-                                        <td><%= site.created_at %></td>
+                                        <td><%= link_to "Ссылка", site.url, :target => "blank" %></td>
+                                        <td><%= Russian::strftime(site.created_at, "%d.%m.%Y") %></td>
                                         <td><%= site.stage %></td>
                                         <td><%= link_to 'Изменить', edit_variant_path(site) %> / <%= link_to 'Удалить', site, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
                                     </tr>
@@ -201,11 +201,11 @@
                                     <tr><!-- item -->
                                         <td><%= link_to site.articul, site %></td>
                                         <td><%= image_tag site.picture.thumb.url %></td>
-                                        <td><%= site.price %></td>
+                                        <td><%= number_to_currency( site.price, unit: "руб.", :precision => 0, delimiter: " ", format: "%n %u") %></td>
                                         <td><%= truncate( raw( sanitize(site.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 100, :omission => "...") %></td>
                                         <td><%= site.company %></td>
-                                        <td><%= site.url %></td>
-                                        <td><%= site.created_at %></td>
+                                        <td><%= link_to "Ссылка", site.url, :target => "blank" %></td>
+                                        <td><%= Russian::strftime(site.created_at, "%d.%m.%Y") %></td>
                                         <td><%= site.stage %></td>
                                         <td><%= link_to 'Изменить', edit_variant_path(site) %> / <%= link_to 'Удалить', site, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
                                     </tr>
@@ -219,27 +219,14 @@
                     </div>
 
                 </div>
-
-
                                 </div>
-
-
-
-
-
-
-
-
 
                             </div>
 
                         </div>
 
-
-
-
-                
                 <!-- INVOICE BODY -->
+
 <%= link_to 'Создать новый вариант дизайна', new_variant_path %>
             </section>
         </div>

@@ -16,4 +16,13 @@ add_breadcrumb "Главная", :root_path, :title => "Вернуться на 
 
   	@messages = Message.order('created_at DESC')
   end
+
+  def marketing
+    @title = "Маркетинг"
+    add_breadcrumb @title
+
+    @kps = Kp.order('created_at DESC')
+    @messages = Message.order('created_at DESC')
+    @zakazs = Zakaz.order('created_at DESC')
+  end
 end

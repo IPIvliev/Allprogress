@@ -1,40 +1,101 @@
-<p id="notice"><%= notice %></p>
+<!-- WRAPPER -->
+    <div id="wrapper">
 
-<p>
-  <b>Picture:</b>
-  <%= @variant.picture %>
-</p>
+      <!-- PAGE TITLE -->
+      <%= render "/shared/bread" %>
 
-<p>
-  <b>Price:</b>
-  <%= @variant.price %>
-</p>
+      <%= render '/shared/moremenu' %>
 
-<p>
-  <b>Url:</b>
-  <%= @variant.url %>
-</p>
+      <section id="portfolio" class="container">
 
-<p>
-  <b>Description:</b>
-  <%= @variant.description %>
-</p>
-
-<p>
-  <b>Articul:</b>
-  <%= @variant.articul %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @variant.status %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= @variant.company %>
-</p>
+        <h2><strong>Артикул сайта:</strong> <%= @variant.articul %></h2>
 
 
-<%= link_to 'Edit', edit_variant_path(@variant) %> |
-<%= link_to 'Back', variants_path %>
+        <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+        <% end %>
+
+
+        <div class="row">
+          <p id="notice"><%= notice %></p>
+          <div class="col-sm-5 col-md-7">
+            <div class="controlls-over product-image">
+              <div>
+                <%= image_tag @variant.picture.url, :class => "img-responsive" %>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-sm-7 col-md-5">
+
+            <h3>Сайт на продажу</h3>
+
+<div class="item-box-desc">
+                      <span class="price styleSecondColor fsize20"><%= number_to_currency( @variant.price, unit: "руб.", :precision => 0, delimiter: " ", format: "%n %u") %></span>
+                      <span class="oldprice">29 999 руб.</span>
+                    </div>
+
+            <p><%= @variant.description %></p>
+
+            <ul class="list-icon star-o">
+              <li>Великолепный дизайн</li>
+              <li>Качественная вёрстка</li>
+              <li>Уникальность сайта</li>
+              <li>Оптимизация для поисковых систем</li>
+            </ul>
+
+            <%= link_to "<i class='fa fa-external-link'></i> Посмотреть пример".html_safe, @variant.url, :class => "btn btn-primary btn-lg btn-margin-top", :target => "blank" %>
+<br><br>
+<h3><strong>Подать заявку</strong> на покупку</h3>
+<p>После того, как Вы подадите заявку на покупку сайта, наш менеджер свяжется с Вами по телефону.</p>
+
+            <%= form_for @zakaz, :url => {:action => "newzakaz"} do |f| %>
+  <% if @variant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@zakaz.errors.count, "error") %> prohibited this variant from being saved:</h2>
+
+      <ul>
+      <% @zakaz.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <label><strong>Как к вам обращаться:</strong></label>
+              <%= f.text_field :name, :placeholder => "Иван Дмитриевич", :class => "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label><strong>Телефон для связи:</strong></label>
+              <%= f.text_field :phone, :placeholder => "8-903-602-8919", :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+              <%= f.hidden_field :variant_id, :value => @variant.id %>
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.submit :value => "Отправить", :class => "btn btn-lg btn-success" %>
+                </div>
+              </div>
+</div>
+
+<% end %>
+          </div>
+            <div class="divider"><!-- divider -->
+              <i class="fa fa-star"></i>
+            </div>
+            
+            <div class="alert alert-info">
+              <i class="fa fa-check-circle"></i> 
+              <strong>Внимание!</strong> Все сайты, выложенные в нашем магазине, продаются "в одни руки". Приобретя у нас сайт, вы получайте уникальный продукт.
+            </div>
+
+      </section>
+
+    </div>
+    <!-- /WRAPPER -->

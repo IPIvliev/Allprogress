@@ -1,4 +1,8 @@
+# encoding: utf-8
+
 class VariantsController < ApplicationController
+  add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
+
   # GET /variants
   # GET /variants.json
   def index
@@ -15,13 +19,35 @@ class VariantsController < ApplicationController
   # GET /variants/1
   # GET /variants/1.json
   def show
+
     @variant = Variant.find(params[:id])
+
+    @zakaz = Zakaz.new
+
+    @title = "Покупка сайта #{@variant.articul}"
+
+    add_breadcrumb "Магазин сайтов", "/catalogue.html"
+    add_breadcrumb @title
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @variant }
     end
   end
+
+  def newzakaz
+    @zakaz = Zakaz.new(params[:zakaz])
+
+    if @zakaz.save(params[:zakaz])
+      flash[:success] = "Заявка отправлена."
+      redirect_to variant_path(params[:zakaz][:variant_id])
+    else
+      flash[:danger] = "Заявка отклонена. Скорее всего вы не заполнили одно из полей."
+      redirect_to variant_path(params[:zakaz][:variant_id])
+    end
+  end
+
+
 
   # GET /variants/new
   # GET /variants/new.json

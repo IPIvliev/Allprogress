@@ -1,7 +1,5 @@
 <% if current_user && current_user.role == "admin" %>
 
-
-
 <section class="container text-center">
   <!-- Top Nav -->
     <a class="logo" href="/index.html">
@@ -11,17 +9,17 @@
     <div class="navbar-collapse nav-main-collapse collapse pull-right">
       <nav class="nav-main mega-menu">
         <ul class="nav nav-pills nav-main scroll-menu" id="topMain">
-          <li class="<%=is_active('portfolio')%>">
+          <li>
             <%= link_to "Работы", variants_path %>
+          </li>
+          <li>
+            <%= link_to "Заказы", "/marketings/zakaz" %>
           </li>
           <li>
             <%= link_to "Блог", articles_path %>
           </li>
           <li>
-            <a href="/marketings/kps">КП</a>
-          </li>
-          <li>
-            <a href="/marketings/messages">Сообщения</a>
+            <%= link_to "Маркетинг", "/marketings/marketing" %>
           </li>
           <li class="active">
             <%= link_to "Выйти", destroy_user_session_path, :method => :delete if current_user %>

@@ -4,6 +4,8 @@
       <!-- PAGE TITLE -->
       <%= render "/shared/bread" %>
 
+      <%= render '/shared/moremenu' %>
+
       <section id="portfolio" class="container">
 
         <h2><strong>Изготовленные</strong> сайты</h2>
@@ -26,11 +28,11 @@
               <li class="isotope-item col-sm-6 col-md-3 <%= variant.tags %>"><!-- item -->
                 <div class="item-box">
                   <figure>
-                    <a class="item-hover" href="<%= variant.url %>">
+                    <a class="item-hover" href="<%= variant.url %>" target="blank">
                       <span class="overlay color2"></span>
                       <span class="inner">
                         <span class="block fa fa-plus fsize20"></span>
-                        <strong>ИНФОРМАЦИЯ</strong> О САЙТЕ
+                        <strong>ПЕРЕЙТИ</strong> НА САЙТ
                       </span>
                     </a>
                     <%= image_tag variant.picture, :class => "img-responsive", :width => 260, :height => 260, :alt => variant.company %>
