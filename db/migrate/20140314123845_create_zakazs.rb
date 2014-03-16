@@ -5,6 +5,7 @@ class CreateZakazs < ActiveRecord::Migration
       t.string :name
       t.string :phone
       t.boolean :answer
+      t.string :type
 
       t.timestamps
     end

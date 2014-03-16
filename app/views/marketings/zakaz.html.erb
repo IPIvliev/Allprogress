@@ -7,19 +7,50 @@
 			<%= render '/shared/moremenu' %>
 
 			<section class="container">
-<% if @zakazs %>
+
+
 <!-- INVOICE BODY -->
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Список <strong>Запросов</strong></h3>
-					</div>
 
-					<div class="panel-body">
+    <div class="tabs nomargin-top">
 
-						<p>Список вопросов, которые были заданны пользователями через вклюдку "Контакты" в меню сайта.</p>
-					
-					
-						<table class="table table-striped">
+                            <!-- tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab1" data-toggle="tab">
+                                        <i class="fa fa-pencil"></i> Заказы на сайт
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2" data-toggle="tab">
+                                        <i class="fa fa-gears"></i> Заказы на сопровождение
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab3" data-toggle="tab">
+                                        <i class="fa fa-thumbs-o-up"></i> Заказы на продвижение
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                            <!-- tabs content -->
+                            <div class="tab-content">
+                                <div id="tab1" class="tab-pane active">
+                                    
+
+
+
+<div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Заказы <strong> На Сайт</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+<% if !@zakazs_site.blank? %> 
+                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                    
+                   
+                        <table class="table table-striped">
 							<!-- table head -->
 							<thead>
 								<tr>
@@ -34,7 +65,7 @@
 							
 							<!-- table items -->
 							<tbody>
-								<% @zakazs.each do |zakaz| %>
+								<% @zakazs_site.each do |zakaz| %>
 									<tr><!-- item -->
 										<td><%= zakaz.id %></td>
 										<td><%= zakaz.name %></td>
@@ -46,16 +77,137 @@
 								<% end %>
 							</tbody>
 						</table>
-
-
-					</div>
-
-				</div>
-				<!-- INVOICE BODY -->
 <% else %>
-	<p>У вас пона нет ни одного заказа.</p>
+    <p>Нет ни одного заказа на сайт.</p>
 
 <% end %>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                                </div>
+
+                                <div id="tab2" class="tab-pane">
+
+
+
+<div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Заказы <strong>На Сопровождение</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+<% if !@zakaz_service.blank? %>  
+                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                    
+                  
+                       <table class="table table-striped">
+							<!-- table head -->
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>ФИО</th>
+									<th>Телефон</th>
+									<th>Дата запроса</th>
+									<th>Ответ</th>
+								</tr>
+							</thead>
+							
+							<!-- table items -->
+							<tbody>
+								<% @zakazs_service.each do |zakaz| %>
+									<tr><!-- item -->
+										<td><%= zakaz.id %></td>
+										<td><%= zakaz.name %></td>
+										<td><%= zakaz.phone %></td>
+										<td><%= zakaz.created_at %></td>
+										<td>Обработан</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+<% else %>
+    <p>Нет ни одного заказа на сопровождение.</p>
+
+<% end %>
+                    </div>
+
+                </div>
+
+
+                                </div>
+
+
+
+
+                                <div id="tab3" class="tab-pane">
+                                    
+
+
+
+<div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Заказы <strong> На Продвижение</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+<% if !@zakazs_advance.blank? %> 
+                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                    
+                   
+                        <table class="table table-striped">
+							<!-- table head -->
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>ФИО</th>
+									<th>Телефон</th>
+									<th>Дата запроса</th>
+									<th>Ответ</th>
+								</tr>
+							</thead>
+							
+							<!-- table items -->
+							<tbody>
+								<% @zakazs_advance.each do |zakaz| %>
+									<tr><!-- item -->
+										<td><%= zakaz.id %></td>
+										<td><%= zakaz.name %></td>
+										<td><%= zakaz.phone %></td>
+										<td><%= zakaz.created_at %></td>
+										<td>Обработан</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+<% else %>
+    <p>Нет ни одного заказа на продвижение.</p>
+
+<% end %>
+                    </div>
+
+
+
+
+
+
+
+                                </div>
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+
 			</section>
 		</div>
 

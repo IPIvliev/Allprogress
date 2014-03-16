@@ -13,6 +13,8 @@ Allprogress::Application.routes.draw do
     post :newzakaz, :on => :member
   end
 
+  match "newzakaz", :to => 'variants#newzakaz'
+
 # Общие страницы
   get "/index.html", to: "static_pages#index"
   get "/about.html", to: "static_pages#about"

@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20140314123845) do
     t.string   "name"
     t.string   "phone"
     t.boolean  "answer"
+    t.string   "type"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

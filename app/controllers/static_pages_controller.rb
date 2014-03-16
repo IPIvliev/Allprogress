@@ -53,6 +53,8 @@ class StaticPagesController < ApplicationController
     @title = "Сопровождение сайтов"
     add_breadcrumb "Услуги", "/services.html"
     add_breadcrumb @title
+
+    @zakaz = Zakaz.new
   end
 
   def toadvanceasite
