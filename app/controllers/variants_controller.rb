@@ -40,18 +40,10 @@ class VariantsController < ApplicationController
 
     if @zakaz.save(params[:zakaz])
       flash[:success] = "Заявка отправлена."
-      if params[:zakaz][:theme] == "site"
-        redirect_to variant_path(params[:zakaz][:variant_id])
-      elsif params[:zakaz][:theme] == "service"
-        redirect_to "/services/toserviceasite.html"
-      end
+        redirect_to :back
     else
       flash[:danger] = "Заявка отклонена. Скорее всего вы не заполнили одно из полей."
-      if params[:zakaz][:theme] == "site"
-        redirect_to variant_path(params[:zakaz][:variant_id])
-      elsif params[:zakaz][:theme] == "service"
-        redirect_to "/services/toserviceasite.html"
-      end
+      redirect_to :back
     end
   end
 

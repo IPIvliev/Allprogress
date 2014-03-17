@@ -65,6 +65,8 @@ class StaticPagesController < ApplicationController
     @title = "Продвижение сайтов"
     add_breadcrumb "Услуги", "/services.html"
     add_breadcrumb @title
+
+    @zakaz = Zakaz.new
   end
 
   def messagecreate
