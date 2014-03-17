@@ -47,7 +47,7 @@
 
                     <div class="panel-body">
 <% if !@zakazs_site.blank? %> 
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                        <p>Список заказов на изготовление сайта.</p>
                     
                    
                         <table class="table table-striped">
@@ -71,7 +71,7 @@
 										<td><%= zakaz.name %></td>
 										<td><%= zakaz.phone %></td>
 										<td><%= zakaz.variant.articul %></td>
-										<td><%= zakaz.created_at %></td>
+										<td><%= Russian::strftime(zakaz.created_at, "%H:%M %d %B %Y") %></td>
 										<td>Обработан</td>
 									</tr>
 								<% end %>
@@ -102,8 +102,8 @@
                     </div>
 
                     <div class="panel-body">
-<% if !@zakaz_service.blank? %>  
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+<% if !@zakazs_service.blank? %>  
+                        <p>Список заказов на обслуживание сайтов.</p>
                     
                   
                        <table class="table table-striped">
@@ -113,6 +113,7 @@
 									<th>#</th>
 									<th>ФИО</th>
 									<th>Телефон</th>
+									<th>Пакет услуг</th>
 									<th>Дата запроса</th>
 									<th>Ответ</th>
 								</tr>
@@ -125,7 +126,8 @@
 										<td><%= zakaz.id %></td>
 										<td><%= zakaz.name %></td>
 										<td><%= zakaz.phone %></td>
-										<td><%= zakaz.created_at %></td>
+										<td><%= zakaz.specification_variant %></td>
+										<td><%= Russian::strftime(zakaz.created_at, "%H:%M %d %B %Y") %></td>
 										<td>Обработан</td>
 									</tr>
 								<% end %>
@@ -157,7 +159,7 @@
 
                     <div class="panel-body">
 <% if !@zakazs_advance.blank? %> 
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                        <p>Список закаов на продвижение сайтов.</p>
                     
                    
                         <table class="table table-striped">
@@ -179,7 +181,7 @@
 										<td><%= zakaz.id %></td>
 										<td><%= zakaz.name %></td>
 										<td><%= zakaz.phone %></td>
-										<td><%= zakaz.created_at %></td>
+										<td><%= Russian::strftime(zakaz.created_at, "%H:%M %d %B %Y") %></td>
 										<td>Обработан</td>
 									</tr>
 								<% end %>

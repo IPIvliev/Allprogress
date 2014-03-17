@@ -1,8 +1,5 @@
-  <!-- modal trigger -->
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">ЗАКАЗАТЬ</a>
-
             <!-- modal dialog -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="<%= specification %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -39,7 +36,17 @@
             </div>
           </div>
         </div>
-              <%= f.hidden_field :type, :value => "service" %>
+
+              <% if @variant %>
+                <%= f.hidden_field :theme, :value => "site" %>
+                <%= f.hidden_field :variant_id, :value => @variant.id %>
+              <% elsif @title == "Сопровождение сайтов" %>
+                <%= f.hidden_field :theme, :value => "service" %>
+                <%= f.hidden_field :specification, :value => specification %>
+              <% elsif @title == "Продвижение сайтов" %>
+                <%= f.hidden_field :theme, :value => "advance" %>
+              <% end %>
+
               <div class="row">
                 <div class="col-md-12">
                   <%= f.submit :value => "Отправить", :class => "btn btn-lg btn-success" %>

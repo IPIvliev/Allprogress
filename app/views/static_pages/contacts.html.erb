@@ -8,9 +8,13 @@
 				<div id="gmap"><!-- google map --></div>
 			</header>
 
-
+			<%= render '/shared/moremenu' %>
+			
 			<section id="contact" class="container">
 
+				<% flash.each do |key, value| %>
+		            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		        <% end %>
 
 				<div class="row">
 
@@ -19,16 +23,16 @@
 
 						<h2>Задайте свой вопрос или просто скажите <strong><em>Привет!</em></strong></h2>
 
-						<form class="white-row" action="php/contact.php" method="post">
+						<%= form_for @message, :url => { :action => "messagecreate" }, :class => "white-row" do |f| %>
 							<div class="row">
 								<div class="form-group">
 									<div class="col-md-6">
 										<label>ФИО *</label>
-										<input type="text" placeholder="Игорь Иванов" maxlength="100" class="form-control">
+										<%= f.text_field :name, :placeholder => "Игорь Иванов", :maxlength => "100", :class => "form-control" %>
 									</div>
 									<div class="col-md-6">
 										<label>E-mail *</label>
-										<input type="email" placeholder="infocom-nn@yandex.ru" maxlength="100" class="form-control" name="email" id="email">
+										<%= f.text_field :email, :placeholder => "infocom-nn@yandex.ru", :maxlength => "100", :class => "form-control", :id => "email" %>
 									</div>
 								</div>
 							</div>
@@ -36,7 +40,7 @@
 								<div class="form-group">
 									<div class="col-md-12">
 										<label>Телефон (если Вы хотите, чтобы мы Вам перезвонили)</label>
-										<input type="text" placeholder="8-903-602-89-19" maxlength="100" class="form-control">
+										<%= f.text_field :phone, :placeholder => "8-903-602-89-19", :maxlength => "100", :class => "form-control" %>
 									</div>
 								</div>
 							</div>
@@ -44,16 +48,16 @@
 								<div class="form-group">
 									<div class="col-md-12">
 										<label>Ваш вопрос *</label>
-										<textarea maxlength="5000" placeholder="Задайте свой вопрос здесь" rows="10" class="form-control"></textarea>
+										<%= f.text_area :text, :maxlength => "5000", :placeholder => "Задайте свой вопрос здесь", :rows => "10", :class => "form-control" %>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<input type="submit" value="Отправить Сообщение" class="btn btn-primary btn-lg" data-loading-text="Loading...">
+									<%= f.submit :value => "Отправить Сообщение", :class => "btn btn-primary btn-lg" %>
 								</div>
 							</div>
-						</form>
+						<% end %>
 					
 					</div>
 					<!-- /FORM -->

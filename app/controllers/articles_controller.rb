@@ -1,8 +1,13 @@
+# encoding: utf-8
+
 class ArticlesController < ApplicationController
+add_breadcrumb "Главная", :root_path, :title => "Вернуться на главную"
+add_breadcrumb "Блог", "/blog.html", :title => "Вернуться на главную"
+
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +19,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
+
+    @title = @article.name
+    add_breadcrumb @title
 
     respond_to do |format|
       format.html # show.html.erb

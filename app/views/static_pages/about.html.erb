@@ -4,7 +4,13 @@
 			<!-- PAGE TITLE -->
 			<%= render "/shared/bread" %>
 
+			<%= render '/shared/moremenu' %>
+
 			<section class="container">
+
+				<% flash.each do |key, value| %>
+	              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+	            <% end %>
 
 				<!-- Who Am I -->
 				<article class="row">
@@ -94,165 +100,40 @@
 				<!-- WORK -->
 				<section class="container">
 					<h2>
-						Some of my <strong>best work</strong> is featured below.
-						<span class="subtitle">We've added over 36 new features! New layouts, short codes, theme options &amp; more!</span>
+						Наши последние <strong>сайты на продажу</strong> для Вас
+						<span class="subtitle">Вы можете выбрать один из наших уникальных сайтов прямо сейчас из списка последних работа проекта Allprogress.ru</span>
 					</h2>
 
+
+
+
+
+			<div id="shop">
 					<div class="row">
-
-						<div class="col-md-3"><!-- item 1 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover" href="portfolio-single.html">
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>PROJECT</strong> DETAIL
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/scouter-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Project</h4>
-									<small class="styleColor">29 June, 2014</small>
+						<% @variants.each do |variant| %>
+							<div class="col-sm-6 col-md-3"><!-- item -->
+								<div class="item-box fixed-box">
+									<figure>
+										<a class="item-hover" href="<%= variant_path(variant) %>">
+											<span class="overlay color2"></span>
+											<span class="inner">
+												<span class="block fa fa-plus fsize20"></span>
+												<strong>ПОДРОБНАЯ</strong> ИНФОРМАЦИЯ
+											</span>
+										</a>
+										<a href="<%= variant.url %>" target="blank" class="btn btn-primary add_to_cart"><i class="fa fa-external-link"></i> Перейти на сайт</a>
+										<%= image_tag variant.picture.thumb.url, :class => "img-responsive", :alt => variant.articul %> 
+										<img class="img-responsive" src="/images/shop/3.jpg" width="260" height="260" alt="">
+									</figure>
+									<div class="item-box-desc">
+										<h4><strong>Артикул:</strong> <%= variant.articul %></h4>
+										<small class="styleColor"><span>31 000 руб.</span> <%= number_to_currency( variant.price, unit: "руб.", :precision => 0, delimiter: " ", format: "%n %u") %></small>
+									</div>
 								</div>
 							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 2 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>VIEW</strong> VIDEO
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/black-kitty-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Video</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 3 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover lightbox" href="assets/images/demo/portfolio/merchant2-600x403.jpg" data-plugin-options='{"type":"image"}'>
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>PROJECT</strong> DETAIL
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/merchant2-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Image</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 4 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover" href="portfolio-single.html">
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>PROJECT</strong> DETAIL
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/flippin-the-bird1-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Project</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 5 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover lightbox" href="http://www.youtube.com/watch?v=W7Las-MJnJo" data-plugin-options='{"type":"iframe"}'>
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>VIEW</strong> VIDEO
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/night_to_remember1-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Video</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 6 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover lightbox" href="assets/images/demo/portfolio/spacebound-600x403.jpg" data-plugin-options='{"type":"image"}'>
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>PROJECT</strong> DETAIL
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/spacebound-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Image</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 7 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover" href="portfolio-single.html">
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>PROJECT</strong> DETAIL
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/be-my-guest1-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Project</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-3"><!-- item 8 -->
-							<div class="item-box">
-								<figure>
-									<a class="item-hover" href="portfolio-single.html">
-										<span class="overlay color2"></span>
-										<span class="inner">
-											<span class="block fa fa-plus fsize20"></span>
-											<strong>PROJECT</strong> DETAIL
-										</span>
-									</a>
-									<img class="img-responsive" src="assets/images/demo/portfolio/black-box5-600x403.jpg" width="260" height="260" alt="">
-								</figure>
-								<div class="item-box-desc">
-									<h4>Atropos Project</h4>
-									<small class="styleColor">29 June, 2014</small>
-								</div>
-							</div>
-						</div>
-
+						<% end %>					
 					</div>
+			</div>
 
 				</section>
 				<!-- /WORK -->

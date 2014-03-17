@@ -10,6 +10,10 @@
 
       <section class="container text-center">
 
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+            <% end %>
+
         <h1 class="text-center">
           <strong>Создание</strong> сайтов
           <span class="subtitle">ПРОЕКТ КОМПАНИИ "ИНФОКОМ-НН"</span>

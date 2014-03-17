@@ -7,6 +7,11 @@
 			<%= render '/shared/moremenu' %>
 
 		<section class="container text-center">
+
+			<% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+            <% end %>
+            
 				<h1 class="text-center">
 					<strong>Добро Пожаловать</strong> В Наш Каталог Сайтов
 					<span class="subtitle">Возможно, лучшее, что вам довелось увидеть!</span>

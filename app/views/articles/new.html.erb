@@ -1,5 +1,27 @@
-<h1>New article</h1>
+ <div id="wrapper">
 
-<%= render 'form' %>
+            <!-- PAGE TITLE -->
+            <%= render "/shared/bread" %>
 
-<%= link_to 'Back', articles_path %>
+            <%= render '/shared/moremenu' %>
+
+            <section class="container">
+
+
+<div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Создать <strong>Статью В Блоге</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+                   
+                               <%= render 'form' %>
+
+                    </div>
+
+                </div>
+
+<%= link_to 'Назад', :back %>
+
+</section>
+</div>

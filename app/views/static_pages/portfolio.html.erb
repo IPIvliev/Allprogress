@@ -8,6 +8,10 @@
 
       <section id="portfolio" class="container">
 
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+            <% end %>
+
         <h2><strong>Изготовленные</strong> сайты</h2>
 
         <p class="lead">В этом разделе Вы можете познакомиться с сайтами, которые были созданы в рамках проекта "Allprogress.ru". Все работы разбиты на категории для облегчения поиска. Посмотрите, как может выглядеть Вам будущий сайт.</p>

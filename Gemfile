@@ -17,8 +17,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 
-# Variants
-
+# Blog
+gem 'ckeditor'
 
 # Images
 gem 'carrierwave'

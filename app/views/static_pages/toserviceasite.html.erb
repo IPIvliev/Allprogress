@@ -4,13 +4,13 @@
 			<!-- PAGE TITLE -->
 			<%= render "/shared/bread" %>
 
+			<%= render '/shared/moremenu' %>
 
 			<section class="container">
 
 				<% flash.each do |key, value| %>
 		            <%= content_tag(:div, value, class: "alert alert-#{key}") %>
 		        <% end %>
-
 
 				<h2>Потому что <strong>Вы</strong> лучшие!</h2>
 
@@ -92,7 +92,9 @@
 							<li><i class="fa fa-check"></i>Изменение функционала сайта*</li>
 							<li><i class="fa fa-check"></i>Ежемесячный отчёт о посещаемости</li>
 						</ul>
-						<%= render '/shared/zakazat' %>
+						<!-- modal trigger -->
+            				<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#1">ЗАКАЗАТЬ</a>
+						<%= render :partial => '/shared/zakazat', :locals => { :specification => "1" } %>
 					</div>
 
 					<div class="col-md-4 price-table popular">
@@ -112,7 +114,9 @@
 							<li><i class="fa fa-check"></i> Настройка и сопровождение работы почты с именем сайта сайта (info@вашсайт.ру)</li>
 							<li><i class="fa fa-check"></i> Размещение <strong class="orange">10 новых статей в месяц</strong> с привлечением профессиональных копирайтеров</li>
 						</ul>
-						<%= render '/shared/zakazat' %>
+						<!-- modal trigger -->
+            				<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#2">ЗАКАЗАТЬ</a>
+						<%= render :partial => '/shared/zakazat', :locals => { :specification => "2" } %>
 					</div>
 
 					<div class="col-md-4 price-table">
@@ -132,8 +136,9 @@
 							<li><i class="fa fa-check"></i> Настройка и сопровождение работы почты с именем сайта сайта (info@вашсайт.ру)</li>
 							<li><i class="fa fa-check"></i> Размещение <strong class="orange">20 новых статей в месяц</strong> с привлечением профессиональных копирайтеров</li>
 						</ul>
-
-						<%= render '/shared/zakazat' %>
+  						<!-- modal trigger -->
+            				<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#3">ЗАКАЗАТЬ</a>
+						<%= render :partial => '/shared/zakazat', :locals => { :specification => "3" } %>
 
 					</div>
 <p>* Если сайт был заказан в рамках проекта Allprogress.ru</p>

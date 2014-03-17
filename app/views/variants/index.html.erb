@@ -103,12 +103,12 @@
 
 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Варианты дизайна <strong>На Продажу</strong></h3>
+                        <h3 class="panel-title">Сайты <strong>В Работе</strong></h3>
                     </div>
 
                     <div class="panel-body">
 <% if !@variants1.blank? %>  
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                        <p>Список сайтов, отправленных в работу.</p>
                     
                   
                         <table class="table table-striped">
@@ -121,7 +121,7 @@
                                     <th>Описание</th>
                                     <th>Компания</th>
                                     <th>Ссылка</th>
-                                    <th>Дата создания</th>
+                                    <th>Дата начала работ</th>
                                     <th>Статус</th>
                                     <th>Изменить / Удалить</th>
 
@@ -138,7 +138,7 @@
                                         <td><%= truncate( raw( sanitize(site.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 100, :omission => "...") %></td>
                                         <td><%= site.company %></td>
                                         <td><%= link_to "Ссылка", site.url, :target => "blank" %></td>
-                                        <td><%= Russian::strftime(site.created_at, "%d.%m.%Y") %></td>
+                                        <td><%= Russian::strftime(site.updated_at, "%d.%m.%Y") %></td>
                                         <td><%= site.stage %></td>
                                         <td><%= link_to 'Изменить', edit_variant_path(site) %> / <%= link_to 'Удалить', site, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
                                     </tr>
@@ -170,12 +170,12 @@
 
 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Варианты дизайна <strong>На Продажу</strong></h3>
+                        <h3 class="panel-title">Реализованные <strong>Сайты</strong></h3>
                     </div>
 
                     <div class="panel-body">
 <% if !@variants2.blank? %>   
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                        <p>Список вариантов дизайна, проданных заказчику.</p>
                     
                  
                         <table class="table table-striped">
@@ -188,7 +188,7 @@
                                     <th>Описание</th>
                                     <th>Компания</th>
                                     <th>Ссылка</th>
-                                    <th>Дата создания</th>
+                                    <th>Дата продажи</th>
                                     <th>Статус</th>
                                     <th>Изменить / Удалить</th>
 
@@ -205,7 +205,7 @@
                                         <td><%= truncate( raw( sanitize(site.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 100, :omission => "...") %></td>
                                         <td><%= site.company %></td>
                                         <td><%= link_to "Ссылка", site.url, :target => "blank" %></td>
-                                        <td><%= Russian::strftime(site.created_at, "%d.%m.%Y") %></td>
+                                        <td><%= Russian::strftime(site.updated_at, "%d.%m.%Y") %></td>
                                         <td><%= site.stage %></td>
                                         <td><%= link_to 'Изменить', edit_variant_path(site) %> / <%= link_to 'Удалить', site, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
                                     </tr>

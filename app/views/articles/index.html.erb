@@ -1,29 +1,63 @@
-<h1>Listing articles</h1>
+<!-- WRAPPER -->
+        <div id="wrapper">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Text</th>
-    <th>User</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            <!-- PAGE TITLE -->
+            <%= render "/shared/bread" %>
 
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.name %></td>
-    <td><%= article.text %></td>
-    <td><%= article.user_id %></td>
-    <td><%= article.picture %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+            <%= render '/shared/moremenu' %>
+
+            <section class="container">
+
+<!-- INVOICE BODY -->
+
+
+<div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Реализованные <strong>Сайты</strong></h3>
+                    </div>
+
+                    <div class="panel-body">
+<% if !@articles.blank? %>   
+                        <p>Список вариантов дизайна, проданных заказчику.</p>
+                    
+                 
+                        <table class="table table-striped">
+                            <!-- table head -->
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Изображение</th>
+                                    <th>Наименование</th>
+                                    <th>Дата публикации</th>
+                                    <th>Изменить / Удалить</th>
+
+                                </tr>
+                            </thead>
+                            
+                            <!-- table items -->
+                            <tbody>
+                                <% @articles.each do |article| %>
+                                    <tr><!-- item -->
+                                        <td><%= article.id %></td>
+                                        <td><%= image_tag article.picture.thumb.url %></td>
+                                        <td><%= link_to article.name, article %></td>
+                                        <td><%= Russian::strftime(article.created_at, "%d.%m.%Y") %></td>
+                                        <td><%= link_to 'Изменить', edit_article_path(article) %> / <%= link_to 'Удалить', article, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+                                    </tr>
+                                <% end %>
+                            </tbody>
+                        </table>
+                        <%= will_paginate @articles %>
+<% else %>
+    <p>На текущий момент нет ни одного сообщения в блоге.</p>
+
 <% end %>
-</table>
+                    </div>
 
-<br />
+                </div>
 
-<%= link_to 'New Article', new_article_path %>
+                <!-- INVOICE BODY -->
+
+<%= link_to 'Создать новую статью', new_article_path %>
+            </section>
+        </div>

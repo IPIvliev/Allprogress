@@ -4,7 +4,15 @@
 			<!-- PAGE TITLE -->
 			<%= render "/shared/bread" %>
 
+      		<%= render '/shared/moremenu' %>
+
 			<section class="container">
+
+				<% flash.each do |key, value| %>
+	              <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+	            <% end %>
+
+
 				<h2>Потому что <strong>Вы</strong> лучшие!</h2>
 
 				<p class="lead">Предлагаем Вашему вниманию три основным направления работы проекта "Allprogress.ru": создание сайтов, сопровождение сайтов и продвижение сайтов. Выберите свой формат сотрудничества!</p>

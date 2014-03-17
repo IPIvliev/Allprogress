@@ -10,6 +10,8 @@ class StaticPagesController < ApplicationController
   def about
     @title = "О компании"
     add_breadcrumb @title
+
+    @variants = Variant.where(:status => 0).limit(4).order('created_at DESC')
   end
 
   def catalogue
@@ -34,6 +36,8 @@ class StaticPagesController < ApplicationController
   def contacts
     @title = "Контакты"
     add_breadcrumb @title
+
+    @message = Message.new
   end
 
   def portfolio
@@ -63,4 +67,14 @@ class StaticPagesController < ApplicationController
     add_breadcrumb @title
   end
 
+  def messagecreate
+    @message = Message.new(params[:message])
+
+    if @message.save(params[:message])
+      flash[:success] = "Ваше сообщение отправленно. Наш менеджер свяжется с Вами в ближайшее время."
+    else
+      flash[:danger] = "Сообщение не отправленно. Вы не заполнили, либо не правильно заполнили одно из обязательных полей."
+    end
+      redirect_to "/contacts.html"
+  end
 end

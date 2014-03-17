@@ -41,7 +41,7 @@
 
                     <div class="panel-body">
 <% if !@kps.blank? %> 
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+                        <p>Список пользователей, запросивших коммерческое предложение.</p>
                     
                    
                         <table class="table table-striped">
@@ -60,11 +60,14 @@
 									<tr><!-- item -->
 										<td><%= kp.id %></td>
 										<td><%= kp.email %></td>
-										<td><%= kp.created_at %></td>
+										<td><%= Russian::strftime(kp.created_at, "%H:%M %d %B %Y") %></td>
 									</tr>
 								<% end %>
 							</tbody>
 						</table>
+					<div class="text-center">
+						<%= will_paginate @kps %>
+					</div>
 <% else %>
     <p>Не отправленно ни одного коммерческого предложения.</p>
 
@@ -86,12 +89,12 @@
 
 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Варианты дизайна <strong>На Продажу</strong></h3>
+                        <h3 class="panel-title">Сообщения <strong>Пользователей</strong></h3>
                     </div>
 
                     <div class="panel-body">
-<% if !@variants1.blank? %>  
-                        <p>Список вариантов дизайна, выставленных на продажу для ознакомления на сайте.</p>
+<% if !@messages.blank? %>  
+                        <p>Список пользователей, отправивших запросы на сайт.</p>
                     
                   
                        <table class="table table-striped">
@@ -117,7 +120,7 @@
 										<td><%= message.text %></td>
 										<td><%= message.phone %></td>
 										<td><%= message.email %></td>
-										<td><%= message.created_at %></td>
+										<td><%= Russian::strftime(message.created_at, "%H:%M %d %B %Y") %></td>
 										<td>Обработано</td>
 									</tr>
 								<% end %>

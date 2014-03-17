@@ -15,6 +15,12 @@ Allprogress::Application.routes.draw do
 
   match "newzakaz", :to => 'variants#newzakaz'
 
+# Отправка сообщений
+  match "messagecreate", :to => 'static_pages#messagecreate'
+
+# Отправка коммерческого предложения
+  match "sent_kp", :to => 'marketings#sent_kp'  
+
 # Общие страницы
   get "/index.html", to: "static_pages#index"
   get "/about.html", to: "static_pages#about"
