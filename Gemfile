@@ -7,9 +7,14 @@ gem 'bootstrap-will_paginate', '0.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Базы данных
 gem 'sqlite3'
+gem 'yaml_db'
+
+# Общее
 gem "breadcrumbs_on_rails"
 gem 'russian'
+gem 'thin'
 
 # Users
 gem 'devise'
